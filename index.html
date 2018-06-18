@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+$(document).ready(function(){
+
+
+  $(".clear").on('click', function(){
+    $("p").empty();
+     $("#nursingButton").text("Start Nursing");
+   })
+
+    $(".startButton").on('click', function(){
+
+        var startTime = new Date();
+        var endTime = new Date();
+        var totalTime = endTime - startTime;
+
+        $(this).text(function (_, text){
+            return text === "Stop Nursing" ? "Start Nursing" : "Stop Nursing";
+
+            }).toggleClass("endButton").toggleClass("startButton");
+
+            if ($(this).hasClass("endButton")) {
+              $(".timerStart").text("You started nursing at " + startTime);
+
+            }  else if ($(this).hasClass("startButton")) {
+
+            $(".timerFinish").text("You finished nursing at " + endTime);
+
+            $(".totalTime").text("Total nursing time was " + totalTime);
+
+      }
+  });
+});
+</script>
+</head>
+<body>
+
+  <body>
+
+  <button id="nursingButton" class="startButton">Start Nursing</button>
+
+  <button id="clearButton" class="clear">New Nursing</button>
+
+
+  <p class = "timerStart"></p>
+  <p class = "timerFinish"></p>
+  <p class = "totalTime"></p>
+
+
+  </body>
+
+</body>
+</html>
