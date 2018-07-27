@@ -16,7 +16,7 @@ $(document).ready(function(){
 
         var startTime = moment().format('MMMM Do YYYY, h:mm:ss a');
         var endTime = moment().format('MMMM Do YYYY, h:mm:ss a');
-        var totalTime = endTime - startTime;
+
 
         $(this).text(function (_, text){
             return text === "Stop Nursing" ? "Start Nursing" : "Stop Nursing";
@@ -30,7 +30,7 @@ $(document).ready(function(){
 
             $(".timerFinish").text("You finished nursing at " + endTime);
 
-            $(".totalTime").text("Total nursing time was " + totalTime);
+            $(".totalTime").text("Total nursing time was " + (endTime - startTime));
 
       }
   });
